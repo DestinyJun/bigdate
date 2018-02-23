@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>大数据展示页</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=q3OZttc8qOGDG9anCTYRIOmXpHrnT96u"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/echarts/dist/echarts.js"></script>
+    <script src="./node_modules/popper.js/dist/popper.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="header-title">
+                    <h5 class="header-title-h4">
+                        <span class="header-title-box1"></span>
+                        <span class="header-title-box2"></span>
+                        <i class="header-title-hr"></i>
+                        <span>阜阳市流动人口</span>
+                    </h5>
+                </div>
+                <div class="header-icon">
+                    <img src="./images/主页.png" class="header-icon-img float-right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 main-left " >
+                <div class="left-people">
+                    <h6>2011-2016年阜阳市流动人口</h6>
+                    <div class="left-people-amount">
+                        <h3>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>3</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <small style="font-size: 14px">人</small>
+                        </h3>
+                    </div>
+                    <div class="left-people-number">
+                        <span style="margin-right: 10px">嵌入率为</span>
+                        <span class="text-warning">3.2%</span>
+                        <span style="margin-right: 10px">总体增长</span>
+                        <span class="text-warning">25634人</span>
+                        <i class="fa fa-long-arrow-up"></i>
+                        <span class="text-warning">3.2%</span>
+                    </div>
+                </div>
+                <div class="left-accumulation" id="accumulation_echart"></div>
+                <div class="left-income" id="income_echart"></div>
+                <div class="left-crime" id="crime_echart"></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 main-center">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="center-top">
+                            <div id="center_map"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="center-bottom-left"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="center-bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 main-right">
+                <div class="right-top">
+                    <div id="right_top_histogram"></div>
+                </div>
+                <div class="right-center"></div>
+                <div  class="right-bottom"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src='./js/app.js'></script>
+<script src='./js/MyChart.js'></script>
+<script src='./js/centerMap.js'></script>
+</html>
