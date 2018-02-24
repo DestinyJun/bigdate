@@ -1,12 +1,14 @@
-//  accumulation_echart
+//  accumulation_echart 社保公积金折现图
 var accumulationEchart = echarts.init(document.getElementById('accumulation_echart'), 'light');
 var accumulationEchartOption = {
     // 图标的标题样式
     title: {
         text: '流动人口社保、公积金缴纳情况',
+        top:5,
         textStyle: {
             color: 'white',
-            fontStyle: 12
+            fontSize: 12,
+            fontWeight: 'normal'
         }
     },
     // 图标的图列控制配置
@@ -34,7 +36,7 @@ var accumulationEchartOption = {
         show:true,
         type: 'category',
         boundaryGap: false,
-        data: ['2007','','2009','','2011','','2013','','2015','','2017'],
+        data: ['2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017'],
         // 坐标轴轴线相关设置
         axisLine:{
             lineStyle:{
@@ -48,7 +50,7 @@ var accumulationEchartOption = {
         // 坐标轴刻度标签的相关设置
         axisLabel:{
             color:'white',
-            interval:0
+            interval:1
         },
         // 控制水平网格线是否显示
         splitLine: {
@@ -79,24 +81,9 @@ var accumulationEchartOption = {
             color:'white',
             length:6,
             formatter: function (value) {
-                var texts = [];
+                var texts = [value+'%'];
                 if(value===0){
-                    texts.push('0');
-                }
-                else if (value <= 5) {
-                    texts.push('5%');
-                }
-                else if (value<= 10) {
-                    texts.push('10%');
-                }
-                else if(value<= 20){
-                    texts.push('20%');
-                }
-                else if(value<= 30){
-                    texts.push('30%');
-                }
-                else if(value<= 40){
-                    texts.push('40%');
+                    texts =[0]
                 }
                 return texts.join('/');
             }
@@ -125,14 +112,14 @@ var accumulationEchartOption = {
             name:'公积金',
             type:'line',
             stack: null,
-            data:[1, 7, 9, 13, 15, 27,46,10,5,48,13,28],
+            data:[1, 7, 9, 13, 15, 27,46,10,5,48,13],
             color: '#E5E7B6'
         }
     ]
 };
 accumulationEchart.setOption(accumulationEchartOption);
 
-//  income_echart
+//  income_echart 流动人口职业收入饼图
 var incomeEchart = echarts.init(document.getElementById('income_echart'), 'light');
 var incomeEchartOption = {
     // 图标的标题样式
@@ -140,7 +127,8 @@ var incomeEchartOption = {
         text: '流动人口职业收入情况',
         textStyle: {
             color: 'white',
-            fontStyle: 12
+            fontSize: 12,
+            fontWeight: 'normal'
         }
     },
     series: [
@@ -200,157 +188,35 @@ var incomeEchartOption = {
 };
 incomeEchart.setOption(incomeEchartOption);
 
-//  crime_echart
-var crimeData = [
-    [[28604,77,17096869,'Australia',1990],[31163,77.4,27662440,'Canada',1990],[1516,68,1154605773,'China',1990],[13670,74.7,10582082,'Cuba',1990],[28599,75,4986705,'Finland',1990],[29476,77.1,56943299,'France',1990],[31476,75.4,78958237,'Germany',1990],[28666,78.1,254830,'Iceland',1990],[1777,57.7,870601776,'India',1990],[29550,79.1,122249285,'Japan',1990],[2076,67.9,20194354,'North Korea',1990],[12087,72,42972254,'South Korea',1990],[24021,75.4,3397534,'New Zealand',1990],[43296,76.8,4240375,'Norway',1990],[10088,70.8,38195258,'Poland',1990],[19349,69.6,147568552,'Russia',1990],[10670,67.3,53994605,'Turkey',1990],[26424,75.7,57110117,'United Kingdom',1990],[37062,75.4,252847810,'United States',1990]],
-    [[44056,81.8,23968973,'Australia',2015],[43294,81.7,35939927,'Canada',2015],[13334,76.9,1376048943,'China',2015],[21291,78.5,11389562,'Cuba',2015],[38923,80.8,5503457,'Finland',2015],[37599,81.9,64395345,'France',2015],[44053,81.1,80688545,'Germany',2015],[42182,82.8,329425,'Iceland',2015],[5903,66.8,1311050527,'India',2015],[36162,83.5,126573481,'Japan',2015],[1390,71.4,25155317,'North Korea',2015],[34644,80.7,50293439,'South Korea',2015],[34186,80.6,4528526,'New Zealand',2015],[64304,81.6,5210967,'Norway',2015],[24787,77.3,38611794,'Poland',2015],[23038,73.13,143456918,'Russia',2015],[19360,76.5,78665830,'Turkey',2015],[38225,81.4,64715810,'United Kingdom',2015],[53354,79.1,321773631,'United States',2015]]
-];
+//  crime_echart 犯罪率及犯罪类型气泡图
 var crimeEchart = echarts.init(document.getElementById('crime_echart'), 'light');
 var crimeEchartOption = {
     title: {
         text: '流动人口犯罪率及犯罪类型',
+        top:5,
         textStyle: {
             color: 'white',
-            fontStyle: 14
-        },
-        subtext:'流动人口犯罪率：20%',
-        subtextStyle:{
-            color:'#fff',
-            fontStyle: 12,
-            align:'center',
-            verticalAlign:'bottom',
-            rich:{
-                formatter: [
-                    '{a|这段文本采用样式a}',
-                    '{b|这段文本采用样式b}这段用默认样式{x|这段用样式x}'
-                ].join('\n'),
-                a: {
-                    color: 'red',
-                    lineHeight: 10
-                },
-                b: {
-                    backgroundColor: {
-                        image: 'xxx/xxx.jpg'
-                    },
-                    height: 40
-                },
-                x: {
-                    fontSize: 18,
-                    fontFamily: 'Microsoft YaHei',
-                    borderColor: '#449933',
-                    borderRadius: 4
-                }
-            }
+            fontSize: 12,
+            fontWeight: 'normal'
         }
     },
-    xAxis: {
-        splitLine: {
-            show:false
-        }
-    },
-    yAxis: {
-        splitLine: {
-            lineStyle: {
-                type: 'solid',
-                opacity:0.1
-            }
-        },
-        scale: true
-    },
-    series: [
-        {
-        name: '1990',
-        data: crimeData[0],
-        type: 'scatter',
-        symbolSize: function (crimeData) {
-            return Math.sqrt(crimeData[2]) / 5e2;
-        },
-        label: {
-            emphasis: {
-                show: true,
-                formatter: function (param) {
-                    return param.data[3];
-                },
-                position: 'top'
-            }
-        },
-        itemStyle: {
-            normal: {
-                shadowBlur: 10,
-                shadowColor: 'rgba(120, 36, 50, 0.5)',
-                shadowOffsetY: 5,
-                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                    offset: 0,
-                    color: 'rgb(251, 118, 123)'
-                }, {
-                    offset: 1,
-                    color: 'rgb(204, 46, 72)'
-                }])
-            }
-        }
-    },
-        {
-        name: '2015',
-        data: crimeData[1],
-        type: 'scatter',
-        symbolSize: function (crimeData) {
-            return Math.sqrt(crimeData[2]) / 5e2;
-        },
-        label: {
-            emphasis: {
-                show: true,
-                formatter: function (param) {
-                    return param.data[3];
-                },
-                position: 'top'
-            }
-        },
-        itemStyle: {
-            normal: {
-                shadowBlur: 10,
-                shadowColor: 'rgba(25, 100, 150, 0.5)',
-                shadowOffsetY: 5,
-                color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                    offset: 0,
-                    color: 'rgb(129, 227, 238)'
-                }, {
-                    offset: 1,
-                    color: 'rgb(25, 183, 207)'
-                }])
-            }
-        }
-    }]
-};
-crimeEchart.setOption(crimeEchartOption);
-
-//right_top_histogram
-var rightTopHistogram = echarts.init(document.getElementById('right_top_histogram'), 'light');
-var rightTopHistogramOption = {
-    // 图标的标题样式
-    title: {
-        text: '流动人口社保、公积金缴纳情况',
-        textStyle: {
-            color: 'white',
-            fontStyle: '12px'
-        }
-    },
-    tooltip: {
-        trigger: 'none'
-    },
+    // 图标的图列控制配置
     legend: {
         textStyle: {
             color: 'white',
-            fontStyle: '12px'
+            fontStyle: 12
         },
         data:['社保','公积金'],
-        top:'25px',
-        right:'5px'
+        top:25,
+        right:5,
+        itemGap:20,
+        itemHeight:0 //设置图列标记的高
     },
     // 控制坐标系内绘图区域的相关样式
     grid: {
         show: false,
         left: '3%',
-        right: '4%',
+        right: '5%',
         bottom: '3%',
         containLabel: true
     },
@@ -359,7 +225,21 @@ var rightTopHistogramOption = {
         show:true,
         type: 'category',
         boundaryGap: false,
-        data: ['2007','','2009','','2011','','2013','','2015','','2017'],
+        // 坐标轴轴线相关设置
+        axisLine:{
+            lineStyle:{
+                color:'#2D3653'
+            }
+        },
+        // 坐标轴刻度相关设置
+        axisTick:{
+            show: false
+        },
+        // 坐标轴刻度标签的相关设置
+        axisLabel:{
+            color:'white',
+            interval:0
+        },
         // 控制水平网格线是否显示
         splitLine: {
             show: false,
@@ -373,6 +253,401 @@ var rightTopHistogramOption = {
     yAxis: {
         show:true,
         type: 'value',
+
+        // 坐标轴轴线相关设置
+        axisLine:{
+            lineStyle:{
+                color:'#2D3653'
+            }
+        },
+        // 坐标轴刻度相关设置
+        axisTick:{
+            show: false
+        },
+        // 坐标轴刻度标签的相关设置
+        axisLabel:{
+            color:'white'
+        },
+        // 控制水平网格线是否显示
+        splitLine: {
+            show: false,
+            interval: '0',
+            lineStyle:{
+                opacity:'0.1'
+            }
+        }
+    },
+    tooltip: {
+        trigger: 'none'
+    },
+    series: [
+        {
+            symbolSize: 0,
+            data: [['', 0]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FB5C35'
+            }
+        },
+        {
+            symbolSize: 30,
+            data: [['放火罪', 20]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FB5C35'
+            }
+        },
+        {
+            symbolSize: 25,
+            data: [['破坏交通', 15]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FB5C35'
+            }
+        },
+        {
+            symbolSize: 20,
+            data: [['抢劫', 12]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FB5C35'
+            }
+        },
+        {
+            symbolSize: 15,
+            data: [['强奸', 4]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FEBB4A'
+            }
+        },
+        {
+            symbolSize: 15,
+            data: [['诈骗', 1]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FEBB4A'
+            }
+        },
+        {
+            symbolSize: 15,
+            data: [['勒索', 3]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FEBB4A'
+            }
+        },
+        {
+            symbolSize: 15,
+            data: [['伪造假币', 9]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FEBB4A'
+            }
+        },
+        {
+            symbolSize: 15,
+            data: [['非法经营', 13]],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FB5C35'
+            }
+        }
+    ]
+};
+crimeEchart.setOption(crimeEchartOption);
+
+//  religion_echart 宗教扇形图
+var religionEchart = echarts.init(document.getElementById('religion_echart'), 'light');
+var religionEchartOption = {
+    title: {
+        text: '流动人口名族宗教',
+        top:5,
+        textStyle: {
+            color: 'white',
+            fontSize: 12,
+            fontWeight: 'normal'
+        }
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: "{b} : {c} ({d}%)"
+    },
+
+    series : [
+        {
+            type: 'pie',
+            radius : '55%',
+            center: ['50%', '50%'],
+            label: {
+                show: true,
+                position: 'outside',
+                formatter: '{b}: {d}%',
+                color: 'white',
+                align:'center',
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: 12
+                    }
+                }
+            },
+            data:[
+                {
+                    value:10,
+                    name:'伊斯兰教',
+                    itemStyle:{color:'#E64018'}
+                },
+                {
+                    value:15,
+                    name:'佛教',
+                    itemStyle:{color:'#FBB034'}
+                },
+                {
+                    value:10,
+                    name:'道教',
+                    itemStyle:{color:'#FEEB23'}
+                },
+                {
+                    value:12,
+                    name:'基督教',
+                    itemStyle:{color:'#E30B40'}
+                },
+                {
+                    value:6,
+                    name:'印度教',
+                    itemStyle:{color:'#3291DD'}
+                },
+                {
+                    value:4,
+                    name:'其他',
+                    itemStyle:{color:'#8B489E'}
+                },
+
+                {
+                    value:30,
+                    name:'天主教',
+                    itemStyle:{color:'#75E925'}
+                },
+
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+religionEchart.setOption(religionEchartOption);
+
+
+//  histogram_echarts 流动人口数量性别变化直方体折线图
+var histogramEchart = echarts.init(document.getElementById('histogram_echarts'), 'light');
+var histogramEchartOption = {
+    // 图标的标题样式
+    title: {
+        text: '流动人口数量及性别年变化',
+        top:5,
+        textStyle: {
+            color: 'white',
+            fontSize: 12,
+            fontWeight: 'normal'
+        }
+    },
+    legend: {
+        top:30,
+        data:['女','男','常驻人口总量','流动人口总量'],
+        itemHeight:10,
+        itemWidth:20,
+        textStyle:{
+            color:'white'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['2011','2012','2013','2014','2015','2016'],
+            // 坐标轴轴线相关设置
+            axisLine:{
+                lineStyle:{
+                    color:'#2D3653'
+                }
+            },
+            // 坐标轴刻度相关设置
+            axisTick:{
+                show: false
+            },
+            // 坐标轴刻度标签的相关设置
+            axisLabel:{
+                color:'white',
+                interval:1
+            },
+            // 控制水平网格线是否显示
+            splitLine: {
+                show: false,
+                interval: '0',
+                lineStyle:{
+                    opacity:'0.1'
+                }
+            }
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+
+            // 坐标轴轴线相关设置
+            axisLine:{
+                lineStyle:{
+                    color:'#2D3653'
+                }
+            },
+            // 坐标轴刻度相关设置
+            axisTick:{
+                show: false
+            },
+            // 坐标轴刻度标签的相关设置
+            axisLabel:{
+                color:'white'
+            },
+            // 控制水平网格线是否显示
+            splitLine: {
+                show: false,
+                interval: '0',
+                lineStyle:{
+                    opacity:'0.1'
+                }
+            }
+        }
+    ],
+    series : [
+        {
+            name:'常驻人口总量',
+            type:'line',
+            stack: null,
+            data:[277,480,508,590,501,536],
+            color: ['#89B39D']
+        },
+        {
+            name:'流动人口总量',
+            type:'line',
+            stack: null,
+            data:[520,432,52,414,120,228],
+            color: '#FFEB64'
+        },
+
+        {
+            name:'男',
+            type:'bar',
+            stack: '人数',
+            itemStyle:{
+                color:'#219FF3'
+            },
+            barWidth:'50%',
+            data:[220, 182, 191, 234, 290, 330]
+        },
+        {
+            name:'女',
+            type:'bar',
+            stack: '人数',
+            itemStyle:{
+                color:'#FE3732'
+            },
+            barWidth:'50%',
+            data:[120, 132, 101, 134, 90, 230]
+        }
+    ]
+};
+histogramEchart.setOption(histogramEchartOption);
+
+//  education_echart 教育折线图
+var educationEchart = echarts.init(document.getElementById('education_echart'), 'light');
+var educationEchartOption = {
+    // 图标的标题样式
+    title: {
+        text: '流动人口子女入学率',
+        top:5,
+        textStyle: {
+            color: 'white',
+            fontSize: 12,
+            fontWeight: 'normal'
+        }
+    },
+    // 控制坐标系内绘图区域的相关样式
+    grid: {
+        show: false,
+        left: '3%',
+        right: '5%',
+        bottom: '3%',
+        containLabel: true
+    },
+    // 控制x轴样式
+    xAxis: {
+        show:true,
+        type: 'category',
+        boundaryGap: false,
+        data: ['2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017'],
+        // 坐标轴轴线相关设置
+        axisLine:{
+            lineStyle:{
+                color:'#2D3653'
+            }
+        },
+        // 坐标轴刻度相关设置
+        axisTick:{
+            show: false
+        },
+        // 坐标轴刻度标签的相关设置
+        axisLabel:{
+            color:'white',
+            interval:1
+        },
+        // 控制水平网格线是否显示
+        splitLine: {
+            show: false,
+            interval: '0',
+            lineStyle:{
+                opacity:'0.1'
+            }
+        }
+    },
+    // 控制y轴样式
+    yAxis: {
+        show:true,
+        type: 'value',
+
+        // 坐标轴轴线相关设置
+        axisLine:{
+            lineStyle:{
+                color:'#2D3653'
+            }
+        },
+        // 坐标轴刻度相关设置
+        axisTick:{
+            show: false
+        },
+        // 坐标轴刻度标签的相关设置
+        axisLabel:{
+            color:'white',
+            length:6,
+            // formatter: '{value} w'
+            formatter: function (value) {
+                var texts = [value+'w'];
+                if(value===0){
+                     texts =[0]
+                }
+                return texts.join('/');
+            }
+        },
         // 控制水平网格线是否显示
         splitLine: {
             show: false,
@@ -384,19 +659,34 @@ var rightTopHistogramOption = {
     },
     series: [
         {
-            name:'社保',
-            type:'line',
-            stack: '总量',
-            data:[7, 1, 10, 23, 10, 30],
-            color: ['#697FA4']
+            symbolSize: 24,
+            data: [
+                ['2007', 0]
+            ],
+            symbolOffset:['0%','0'],
+            type: 'scatter',
+
+            itemStyle:{
+                color:'#FDA201'
+            }
         },
         {
-            name:'公积金',
+            symbolSize: 24,
+            data: [
+                ['2017', 15]
+            ],
+            symbolOffset:['0','50%'],
+            type: 'scatter',
+            itemStyle:{
+                color:'#FDA201'
+            }
+        },
+        {
             type:'line',
-            stack: '总量',
-            data:[1, 7, 9, 13, 15, 27],
-            color: '#E5E7B6'
+            stack: null,
+            data:[0,15,5,23,10,30,12,30,13,5,12],
+            color: ['#CBD29D']
         }
     ]
 };
-rightTopHistogram.setOption(rightTopHistogramOption);
+educationEchart.setOption(educationEchartOption);

@@ -6,10 +6,8 @@ body,html{
     color: white;
     background: #151A30;
 }
-.container-fluid{
-    padding-bottom: 10px;
-}
-
+.container-fluid{}
+/*头部*/
 .header{
     height: 46px;
     border-bottom: 1px solid #404259;
@@ -55,18 +53,23 @@ body,html{
 
 }
 .header-icon-img{
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
+/*主体*/
 .main{
-
+    margin-top: 14px;
 }
 
+/*主体左边*/
 .main-left{
-    margin-top: 20px;
+    padding-right: 0;
 }
 
+/*主体左边人口数*/
 .left-people{}
 .left-people-amount>h3>span{
     display: inline-block;
@@ -85,42 +88,99 @@ body,html{
 .left-people-number{
     font-size: 12px;
 }
-
+/*主体左边社保折现图*/
 .left-accumulation{
     margin-top: 10px;
-    height: 200px;
+    height: 193px;
     border:1px solid #3B425C;
 }
-
+/*主体左边流动人口饼图*/
 .left-income{
     margin-top: 10px;
-    height: 150px;
+    height: 130px;
     border:1px solid #3B425C;
     padding-top: 5px;
 }
-
+/*主体左边犯罪人口气泡图*/
 .left-crime{
-    margin-top: 10px;
-    height: 200px;
+    margin-top: 15px;
+    height: 230px;
     border:1px solid #3B425C;
 }
 
+/*主体中部*/
+.main-center{
+
+}
 .center-top{
-    margin-top: 20px;
     padding: 5px;
     border:1px solid #3B425C;
 }
 #center_map{
-    height: 360px;
+    height: 424px;
+}
+/*主体中部下左*/
+.center-bottom-left{
+    margin-top: 15px;
+    margin-right: -8px;
+    border:1px solid #3B425C;
+    height: 230px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.center-bottom-left>p>span{
+    margin-right: 5px
+}
+.center-bottom-left>.p1,.p2,.p3,.p4,.p5{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.center-bottom-left.p1{
+    padding-top: 15px;
+}
+/*主体中部下右*/
+.center-bottom-right{
+    margin-top: 15px;
+    border:1px solid #3B425C;
+    height: 230px;
+    margin-left: -8px;
 }
 
+/*主体右边*/
+.main-right{
+    padding-left: 0;
+}
+/*主体右边顶部*/
 .right-top{
-    margin-top: 20px;
     border:1px solid #3B425C;
+    height: 210px;
+    font-size: 12px;
 }
-#right_top_histogram{
-    height: 200px;
+/*主体右边中部*/
+.right-center{
+    margin-top: 15px;
+    border:1px solid #3B425C;
+    height: 210px;
+    font-size: 12px;
 }
+.right-center>p>span{
+    margin-right: 8px;
+    font-weight: 600;
+}
+.right-center>.p1,.p2,.p3,.p4,.p5{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.right-center.p1{
+    padding-top: 15px;
+}
+/*主体右边底部*/
+.right-bottom{
+    margin-top: 15px;
+    border:1px solid #3B425C;
+    height: 230px;
+}
+
 
 /*微调*/
 .text-warning{
@@ -130,4 +190,7 @@ body,html{
 .fa-long-arrow-up{
     color: red;
 }
+
+/*百度地图*/
+.anchorBL{display:none;}
 

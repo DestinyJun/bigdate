@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>大数据展示页</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
@@ -31,6 +29,9 @@
                 </div>
                 <div class="header-icon">
                     <img src="./images/主页.png" class="header-icon-img float-right">
+                    <img src="./images/人.png" class="header-icon-img float-right">
+                    <img src="./images/退出.png" class="header-icon-img float-right">
+                    <img src="./images/查看.png" class="header-icon-img float-right">
                 </div>
             </div>
         </div>
@@ -72,22 +73,71 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="center-bottom-left"></div>
+                        <div class="center-bottom-left">
+                            <p>流动人口名族构成</p>
+                            <p class="p1">
+                                <span style="color: #A5A5C9;font-size: 14px;">壮族</span>
+                                <span style="color:#700829;">东乡族</span>
+                            </p>
+                            <p class="p2">
+                                <span style="color: #E2D996;font-size: 16px;">回族</span>
+                                <span style="color: #4F729C;font-size: 16px;">蒙古族</span>
+                                <span style="color: #6C7EA6;font-size: 12px;">白族</span>
+                            </p>
+                            <p class="p3">
+                               <span style="color: #E0DCF3;font-size: 13px;">土家族</span>
+                               <span style="color: #6D779A;font-size: 14px;">傣族</span>
+                               <span style="color: #F6F0C0;font-size: 20px;">汉族</span>
+                               <span style="color: #E9EEFF;font-size: 14px;">维吾尔族</span>
+                           </p>
+                            <p class="p4">
+                               <span style="color: #476AAA;font-size: 12px;">藏族</span>
+                               <span style="color: #1D4082;font-size: 16px;">彝族</span>
+                               <span style="color: #A73356;font-size: 14px;">苗族</span>
+                           </p>
+                            <p class="p5">
+
+                            <span style="color: #AC3A5C;font-size: 12px;">满族</span>
+                           </p>
+                        </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="center-bottom-right"></div>
+                        <div class="center-bottom-right" id="religion_echart"></div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 main-right">
-                <div class="right-top">
-                    <div id="right_top_histogram"></div>
+                <div class="right-top" id="histogram_echarts"></div>
+                <div class="right-center">
+                    <p>流动人口来源地分布</p>
+                    <p class="p1">
+                        <span style="color: #A4324B;font-size: 16px;">六安</span>
+                        <span style="color: #843699;font-size: 14px;">宿州</span>
+                        <span style="color: #224472;">菏泽</span>
+                    </p>
+                    <p class="p2">
+                        <span style="color: #802E83;font-size: 14px;">淮北</span>
+                        <span style="color: #ECE59F;font-size: 20px;">安徽</span>
+                        <span style="color: #4F92AF;font-size: 14px;">蚌埠</span>
+                        <span style="color: #B7214F;font-size: 18px;">芜湖</span>
+                    </p>
+                    <p class="p3">
+                        <span style="color: #3A90A7;font-size: 13px;">扬州</span>
+                        <span style="color: #EFEAAA;font-size: 20px;">亳州</span>
+                        <span style="color: #8B3A1F;font-size: 18px;">滁州</span>
+                        <span style="color: #EEE89E;font-size: 22px;">周口</span>
+                        <span style="color: #18649E;font-size: 12px;">无锡</span>
+                    </p>
+                    <p class="p4">
+                        <span style="color: #154889;font-size: 12px;">徐州</span>
+                        <span style="color: #0A2B70;font-size: 12px;">枣庄</span>
+                        <span style="color: #AD5DBE;font-size: 16px;">淮南</span>
+                        <span style="color: #448EB1;font-size: 13px;">连云港</span>
+                    </p>
                 </div>
-                <div class="right-center"></div>
-                <div  class="right-bottom"></div>
+                <div class="right-bottom" id="education_echart"></div>
             </div>
         </div>
     </div>
