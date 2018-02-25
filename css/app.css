@@ -119,6 +119,10 @@ body,html{
     height: 29vh;
     font-size: 12px;
     font-weight: normal;
+    overflow: hidden;
+}
+.center-bottom-left>p{
+    padding-top: 5px;
 }
 .center-bottom-left>p>span{
     margin-right: 5px
@@ -155,6 +159,14 @@ body,html{
     border:1px solid #3B425C;
     height: 29vh;
     font-size: 12px;
+    overflow: hidden;
+}
+.right-center-table{
+    height: 100%;
+    overflow: scroll;
+}
+.right-center>p{
+    padding-top: 5px;
 }
 .right-center>p>span{
     margin-right: 8px;
