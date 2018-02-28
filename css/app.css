@@ -163,7 +163,29 @@ body,html{
 }
 .right-center-table{
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
+    position: relative;
+}
+.content-box{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left:0;
+}
+.scroll{
+    height: 100%;
+    width: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.scroll-bar{
+    width: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .right-center>p{
     padding-top: 5px;
