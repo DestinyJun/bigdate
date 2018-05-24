@@ -544,7 +544,6 @@ var histogramEchartOption = {
             data:[520,432,52,414,120,228],
             color: '#FFEB64'
         },
-
         {
             name:'男',
             type:'bar',
